@@ -51,9 +51,74 @@ package _07_The_Wrong_Way_Cow;
 public class TheWrongWayCow {
 
     public static int[] findWrongWayCow(final char[][] field) {
+    	int down = 0;
+    	int left = 0;
+    	int right = 0;
+    	int up = 0;
+    	String downCord = "";
+    	String upCord = "";
+    	String leftCord = "";
+    	String rightCord = "";
+    	
+    	int downArray[] = new int[2];
+    	int upArray[] = new int[2];
+    	int leftArray[] = new int[2];
+    	int rightArray[] = new int[2];
+    	
         // Fill in the code to return the [col, row] coordinate position of the
         // head (letter 'c') of the wrong way cow!
-        
-        return null;
+        for(int i=0;i<field.length;i++) {
+        	for(int e=0;e<field[0].length;e++) {
+            	if(field[i][e]=='c') {
+            		if(i<field.length+2 && field[i+1][e]=='o') {
+            			if(field[i+2][e]=='w') {
+                			down +=1;
+                			downCord = i + "," + e;
+                			downArray[0] = e;
+                			downArray[1] = i;
+                		}
+            		}
+            		if(i>1 && field[i-1][e]=='o') {
+            			if(field[i-2][e]=='w') {
+            				up +=1;
+            				upCord = i + "," + e;
+            				upArray[0] = e;
+                        	upArray[1] = i;
+                		}
+            		}
+            		if(e>1 && field[i][e-1]=='o') {
+            			if(field[i][e-2]=='w') {
+            				left +=1;
+            				leftCord = i + "," + e;
+            				leftArray[0] = e;
+                        	leftArray[1] = i;
+                		}
+            		}
+            		if(e<field.length+2 && field[i][e+1]=='o') {
+            			if(field[i][e+2]=='w') {
+            				right +=1;
+            				rightCord = i + "," + e;
+            				rightArray[0] = e;
+                        	rightArray[1] = i;
+                		}
+            		}
+            	}
+            }
+        }
+        if(left==1) {
+        	System.out.println(leftCord);
+        	return leftArray;
+        } else if(right==1) {
+        	System.out.println(rightCord);
+        	return rightArray;
+        } else if(up==1) {
+        	System.out.println(upCord);
+        	return upArray;
+        } else if(down==1) {
+        	System.out.println(downCord);
+        	return downArray;
+        } else { 
+        	return null;
+        }
     }
 }

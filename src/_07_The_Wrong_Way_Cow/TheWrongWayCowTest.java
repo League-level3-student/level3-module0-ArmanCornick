@@ -87,7 +87,7 @@ public class TheWrongWayCowTest {
       " dfhdu 880-23fjdlfkjlkjlkjfljf".toCharArray(),
       ";d43-02- -340-2394 39-099kk;ld".toCharArray()
     };
-    assertArrayEquals(new int[]{29,0}, TheWrongWayCow.findWrongWayCow(show(field)));
+    assertArrayEquals(new int[] {29,0}, TheWrongWayCow.findWrongWayCow(show(field)));
   }
 
   @Test 
