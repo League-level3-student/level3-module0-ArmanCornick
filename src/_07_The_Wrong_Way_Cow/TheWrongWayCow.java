@@ -70,36 +70,36 @@ public class TheWrongWayCow {
         for(int i=0;i<field.length;i++) {
         	for(int e=0;e<field[0].length;e++) {
             	if(field[i][e]=='c') {
-            		if(i<field.length+2 && field[i+1][e]=='o') {
+            		if(i<field.length-2 && field[i+1][e]=='o') {
             			if(field[i+2][e]=='w') {
-                			down +=1;
-                			downCord = i + "," + e;
-                			downArray[0] = e;
-                			downArray[1] = i;
+                			right +=1;
+                			rightCord = i + "," + e;
+                			rightArray[0] = e;
+                			rightArray[1] = i;
                 		}
             		}
             		if(i>1 && field[i-1][e]=='o') {
             			if(field[i-2][e]=='w') {
-            				up +=1;
-            				upCord = i + "," + e;
-            				upArray[0] = e;
-                        	upArray[1] = i;
-                		}
-            		}
-            		if(e>1 && field[i][e-1]=='o') {
-            			if(field[i][e-2]=='w') {
             				left +=1;
             				leftCord = i + "," + e;
             				leftArray[0] = e;
                         	leftArray[1] = i;
                 		}
             		}
-            		if(e<field.length+2 && field[i][e+1]=='o') {
+            		if(e>1 && field[i][e-1]=='o') {
+            			if(field[i][e-2]=='w') {
+            				up +=1;
+            				upCord = i + "," + e;
+            				upArray[0] = e;
+                        	upArray[1] = i;
+                		}
+            		}
+            		if(e<field[i].length-2 && field[i][e+1]=='o') {
             			if(field[i][e+2]=='w') {
-            				right +=1;
-            				rightCord = i + "," + e;
-            				rightArray[0] = e;
-                        	rightArray[1] = i;
+            				down +=1;
+            				downCord = i + "," + e;
+            				downArray[0] = e;
+                        	downArray[1] = i;
                 		}
             		}
             	}
